@@ -4,6 +4,7 @@
 
 # Google Slide
 
+- [พื้นฐาน Docker](https://docs.google.com/presentation/d/1NXArkIDFIJMmcvXY63cc5z7jIsbx8SDZqt76RqeuGwU/edit?usp=sharing)
 - [พื้นฐาน Kubernetes โดย jittagornp.me](https://docs.google.com/presentation/d/1Dg8dYMF4kcj6ly2Pi2KeBF1BsWPjWhPrvN9W9tREW5w/edit?usp=sharing)
 
 # Prerequisites
