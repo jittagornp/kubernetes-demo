@@ -2,6 +2,8 @@
 
 > เป็น Demo Kubernetes ง่าย ๆ บน DOKS หรือ DigitalOcean Kubernetes Service
 
+![](./doks-kubernetes.png)
+
 # Google Slide
 
 - [พื้นฐาน Docker โดย Jittagornp.me](https://docs.google.com/presentation/d/1NXArkIDFIJMmcvXY63cc5z7jIsbx8SDZqt76RqeuGwU/edit?usp=sharing)
