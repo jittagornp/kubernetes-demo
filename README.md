@@ -13,6 +13,7 @@
     - NGINX Ingress Controller
     - Kubernetes Monitoring Stack
 - มี Docker Registry เรียบร้อยแล้ว สามารถทำเองได้ง่าย ๆ ตามนี้ [การทำ Docker Registry ขึ้นมาใช้งานเอง](https://www.jittagornp.me/blog/install-docker-registry/?series=docker) 
+- ตอนสร้าง Cluster เสร็จ ให้ Download File Config มาแทนที่ `kubeconfig.yaml` 
 
 # Show
 
