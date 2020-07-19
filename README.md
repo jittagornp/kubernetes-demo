@@ -21,12 +21,18 @@
 
 ```sh
 $ kubectl --kubeconfig="kubeconfig.yaml" get nodes
+
+NAME                            STATUS   ROLES    AGE   VERSION
+whereis-store-node-pool-3jx7f   Ready    <none>   30h   v1.18.3
 ```
 
 ### Show Nodes CPU/Memory 
 
 ```sh
 $ kubectl --kubeconfig="kubeconfig.yaml" top nodes
+
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
+whereis-store-node-pool-3jx7f   145m         7%     2155Mi          69%
 ```
 
 ต้อง apply `doks-metrics-server.yaml` ก่อน ไม่งั้นจะเห็นเป็น error แบบบนี้ 
@@ -38,6 +44,14 @@ Error from server (NotFound): the server could not find the requested resource (
 
 ```sh
 $ kubectl --kubeconfig="kubeconfig.yaml" top pods
+
+NAME                                             CPU(cores)   MEMORY(bytes)
+whereis-store-api-deployment-9745ffbcb-7gw78     1m           106Mi
+whereis-store-app-deployment-5ff74b4449-s6mzs    1m           105Mi
+whereis-store-app-deployment-5ff74b4449-sfz8z    1m           118Mi
+whereis-store-app-deployment-5ff74b4449-z9d6c    1m           110Mi
+whereis-store-image-deployment-94575dcd9-brjx8   1m           106Mi
+whereis-store-video-deployment-ffd87c595-v7pd9   1m           113Mi
 ```
 
 ### Show All
@@ -81,18 +95,37 @@ horizontalpodautoscaler.autoscaling/whereis-store-api-hpa   Deployment/whereis-s
 
 ```sh
 $ kubectl --kubeconfig="kubeconfig.yaml" get secrets
+
+NAME                     TYPE                                  DATA   AGE
+default-token-zlczm      kubernetes.io/service-account-token   3      30h
+registry-whereis-store   kubernetes.io/dockerconfigjson        1      29h
 ```
 
 ### Show Services
 
 ```sh
 $ kubectl --kubeconfig="kubeconfig.yaml" get services
+
+NAME                          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+kubernetes                    ClusterIP   10.245.0.1       <none>        443/TCP   30h
+whereis-store-api-service     ClusterIP   10.245.202.30    <none>        80/TCP    28h
+whereis-store-app-service     ClusterIP   10.245.28.113    <none>        80/TCP    28h
+whereis-store-image-service   ClusterIP   10.245.131.223   <none>        80/TCP    28h
+whereis-store-video-service   ClusterIP   10.245.246.202   <none>        80/TCP    28h
 ```
 
 ### Show Pods
 
 ```sh
 $ kubectl --kubeconfig="kubeconfig.yaml" get pods
+
+NAME                                             READY   STATUS    RESTARTS   AGE
+whereis-store-api-deployment-9745ffbcb-7gw78     1/1     Running   0          28h
+whereis-store-app-deployment-5ff74b4449-s6mzs    1/1     Running   0          28h
+whereis-store-app-deployment-5ff74b4449-sfz8z    1/1     Running   0          28h
+whereis-store-app-deployment-5ff74b4449-z9d6c    1/1     Running   0          28h
+whereis-store-image-deployment-94575dcd9-brjx8   1/1     Running   0          28h
+whereis-store-video-deployment-ffd87c595-v7pd9   1/1     Running   0          28h
 ```
 
 Show all
@@ -116,12 +149,34 @@ kube-system     metrics-server-57f5b96ff5-8f8x7                           1/1   
 
 ```sh
 $ kubectl --kubeconfig="kubeconfig.yaml" get deployments
+
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+whereis-store-api-deployment     1/1     1            1           28h
+whereis-store-app-deployment     3/3     3            3           28h
+whereis-store-image-deployment   1/1     1            1           28h
+whereis-store-video-deployment   1/1     1            1           28h
+```
+
+### Show Namespace
+```sh
+$ kubectl --kubeconfig="kubeconfig.yaml" get namespaces
+
+NAME                  STATUS   AGE
+default               Active   30h
+ingress-nginx         Active   29h
+kube-node-lease       Active   30h
+kube-public           Active   30h
+kube-system           Active   30h
+prometheus-operator   Active   29h
 ```
 
 ### Show HorizontalPodAutoScaler
 
 ```sh
 $ kubectl --kubeconfig="kubeconfig.yaml" get hpa
+
+NAME                    REFERENCE                                 TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+whereis-store-app-hpa   Deployment/whereis-store-app-deployment   <unknown>/80%   1         100       0          2s
 ```
 
 # Create 
