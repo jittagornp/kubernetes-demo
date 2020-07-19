@@ -20,6 +20,7 @@
 - ตอนสร้าง Cluster เสร็จ ให้ Download File Config มาแทนที่ `kubeconfig.yaml` 
 
 อย่าลืม Install 2 อันนี้ 
+  
 ![](./doks-kubernetes-apps.png)
 
 # Show
