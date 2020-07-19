@@ -43,6 +43,8 @@ whereis-store-node-pool-3jx7f   145m         7%     2155Mi          69%
 ```plaintext
 Error from server (NotFound): the server could not find the requested resource (get services http:heapster:)
 ```
+หรือไม่ก็ต้องติดตั้ง `Kubernetes Monitoring Stack` ก่อน 
+
 ### Show Pods CPU/Memory 
 
 ```sh
