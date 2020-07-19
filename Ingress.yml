@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: whereis-store-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: whereis-store-app-service
+          servicePort: 80    
+      - path: /api
+        backend:
+          serviceName: whereis-store-api-service
+          servicePort: 80          
+      - path: /video
+        backend:
+          serviceName: whereis-store-video-service
+          servicePort: 80     
+      - path: /image
+        backend:
+          serviceName: whereis-store-image-service
+          servicePort: 80   

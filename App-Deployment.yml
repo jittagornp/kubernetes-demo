@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    whereis.store.module.name: whereis-store-app
+    whereis.store.module.version: "1.0"
+  name: whereis-store-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      whereis.store.module.name: whereis-store-app
+      whereis.store.module.version: "1.0"
+  template:
+    metadata:
+      labels:
+        whereis.store.module.name: whereis-store-app
+        whereis.store.module.version: "1.0"
+    spec:
+      containers:
+      - name: whereis-store-app
+        image: registry.whereis.store/whereis-store-app:latest 
+        imagePullPolicy: Always  
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 0.2
+      imagePullSecrets:
+      - name: registry-whereis-store   
+

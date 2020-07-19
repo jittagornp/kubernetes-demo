@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whereis-store-api-service
+  labels:
+    whereis.store.module.name: whereis-store-api
+    whereis.store.module.version: "1.0"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+      name: http
+  selector:
+    whereis.store.module.name: whereis-store-api
+    whereis.store.module.version: "1.0"
