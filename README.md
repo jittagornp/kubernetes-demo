@@ -261,6 +261,6 @@ $ docker run --rm skandyla/wrk -t 1 -c 1000 -d 3m http://167.99.xx.xx
 
 # GUI
 
-![https://github.com/lensapp/lens](https://github.com/lensapp/lens)
+[https://github.com/lensapp/lens](https://github.com/lensapp/lens)
 
 ![](./lens.png)
